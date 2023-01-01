@@ -1,8 +1,10 @@
 # record-insertion options
--nu == create and add new user
+-nu == create and add new user record
 -na == create and add new appliance
 -nt == create and add new transaction
 -nua == create and add new userAppliance
+-nb == create and add new bill
+-np == create and add new payment
 
 # flag display options
 -df [operation] == display operation flags
@@ -14,7 +16,9 @@
 -uc == reset users flag
 -ac == reset appliances flag
 -tc == reset transactions flag
--uac == reset userAppliance flag
+-uac == reset userAppliances flag
+-bc == reset bills flag
+-pc == reset payments flag
 
 # others
 -cr == compute, or recompute, user rates.

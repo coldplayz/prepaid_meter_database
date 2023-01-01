@@ -76,3 +76,19 @@ class Transaction(Base):
             sess.close()
 
         return False
+
+    @classmethod
+    def latest_transaction_rec(cls):
+        ''' Fetch the most recent transaction record.
+        '''
+        sess = Session()
+        try:
+            # Get max transactionID
+            maxID = sess.query(func.max(Transaction.transactionID)).scalar()
+
+            # Get the required record
+            latest = sess.query(Transaction).filter(Transaction.transactionID == maxID).one()
+        finally:
+            sess.close()
+
+        return latest

@@ -205,6 +205,41 @@ match cmd:
             sess.close()
     case '-uac':
         set_flag('userAppliances', False)
+    case '-nb':
+        if is_completed(['users', 'appliances', 'transactions', 'userAppliances']):
+            # Create new Bill object
+            newBill = Bill.new_bill()
+            set_flag('bills', True)
+            # Create database session
+            sess = Session()
+            try:
+                sess.add(newBill)
+                sess.commit()
+            except Exception as e:
+                raise e
+            finally:
+                sess.close()
+        else:
+            print('Check for completion of users, appliances, transactions, and/or userAppliances operations, and try again.')
+    case '-bc':
+        # Set flag to indicate completion of insertion operations on bills table.
+        set_flag('bills', False)
+    case '-np':
+        # Create new Payment object
+        newPayment = Payment.new_payment()
+        set_flag('payments', True)
+        # Create database session
+        sess = Session()
+        try:
+            sess.add(newPayment)
+            sess.commit()
+        except Exception as e:
+            raise e
+        finally:
+            sess.close()
+    case '-pc':
+        # Set flag to indicate completion of insertion operations on payments table.
+        set_flag('payments', False)
     case '-df':
         # Display flag(s)
         try:

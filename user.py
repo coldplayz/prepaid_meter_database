@@ -156,3 +156,27 @@ class User(Base):
             sess.commit()
         finally:
             sess.close()
+
+    @classmethod
+    def residentUsers(cls):
+        ''' Fetch number of resident users.
+        '''
+        sess = Session()
+        try:
+            resident = sess.query(func.count(cls.isResident)).filter(cls.isResident == True).scalar()
+        finally:
+            sess.close()
+
+        return resident
+
+    @classmethod
+    def getUserRate(cls, uid):
+        ''' Retrieve the currRate of user with userID, uid.
+        '''
+        sess = Session()
+        try:
+            rate = sess.query(cls.currRate).filter(cls.userID == uid).scalar()
+        finally:
+            sess.close()
+
+        return rate
