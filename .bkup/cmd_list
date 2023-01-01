@@ -1,0 +1,15 @@
+# record-insertion options
+-nu == create and add new user
+-na == create and add new appliance
+-nt == create and add new transaction
+
+# flag display options
+-df [operation] == display operation flags
+-cf op == check completion status of table
+	operation, op
+
+# flag [re]set options
+-sf operation flag == set operation flag manually
+-uc == reset users flag
+-ac == reset appliances flag
+-tc == reset transactions flag
