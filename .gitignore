@@ -1,0 +1,6 @@
+playground/
+templates/
+__pycache__/
+.bkup/
+removepass.sh
+replacepass.sh

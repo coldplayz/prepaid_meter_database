@@ -10,7 +10,7 @@ from decimal import Decimal
 from sqlalchemy.ext.declarative import declarative_base
 
 engine = create_engine(
-        'mysql+mysqldb://Bel2:44384439@localhost/b2_prepaid_meter',
+        'mysql+mysqldb://Bel2:PASSWORD@localhost/b2_prepaid_meter',
         pool_pre_ping=True)
 
 Session = sessionmaker(bind=engine)

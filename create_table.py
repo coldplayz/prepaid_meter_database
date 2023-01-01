@@ -13,7 +13,7 @@ from payment import Payment
 from flag import Flag
 
 engine = create_engine(
-        'mysql+mysqldb://Bel2:44384439@localhost/b2_prepaid_meter',
+        'mysql+mysqldb://Bel2:PASSWORD@localhost/b2_prepaid_meter',
         pool_pre_ping=True)
 
 Base.metadata.create_all(engine)
